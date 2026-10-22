@@ -1,127 +1,78 @@
-/* Базовые переменные для светлой темы */
-:root {
-    --bg-color: #f4f7f6;
-    --text-color: #333333;
-    --card-bg: #ffffff;
-    --primary-color: #4a90e2;
-    --skill-bg: #e1ecf4;
-    --skill-text: #39739d;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Переменные для тёмной темы */
-[data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #f4f7f6;
-    --card-bg: #2d2d2d;
-    --primary-color: #6ba4e8;
-    --skill-bg: #3d3d3d;
-    --skill-text: #6ba4e8;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-}
-
-/* Общие стили */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 40px 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-/* Кнопка переключения темы */
+/* ==========================================================================
+   Кнопка переключения темы (Новый футуристичный дизайн)
+   ========================================================================== */
 .theme-toggle-btn {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 10px 20px;
+    padding: 10px 24px;
     cursor: pointer;
     border: 2px solid var(--primary-color);
-    background-color: transparent;
+    background: linear-gradient(45deg, transparent, transparent);
     color: var(--primary-color);
-    border-radius: 20px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    border-radius: 30px; /* Более округлая форма */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .theme-toggle-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--card-bg);
+    background: linear-gradient(45deg, var(--primary-color), #357abd);
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 
-/* Секция "О себе" */
-header {
-    margin-bottom: 40px;
-    padding-right: 120px;
-}
-
-h1 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.bio {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Секция навыков */
-.skills-section {
-    margin-bottom: 40px;
-}
-
-.skills-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.skills-list li {
-    background-color: var(--skill-bg);
-    color: var(--skill-text);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 500;
-}
-
-/* Сетка проектов (Grid) */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-/* Карточки проектов и эффект наведения */
+/* ==========================================================================
+   Карточки проектов и эффект наведения (Премиальный стиль)
+   ========================================================================== */
 .project-card {
     background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 16px; /* Более мягкие и современные углы */
+    padding: 24px;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03); /* Тонкая рамка для объема */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.4s ease;
+}
+
+/* Декоративная цветная полоса сверху карточки */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), #a2c2e8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02); /* Карточка приподнимается и слегка увеличивается */
     box-shadow: var(--card-hover-shadow);
+    border-color: rgba(74, 144, 226, 0.3); /* Подсветка границ */
+}
+
+/* Активация полосы при наведении */
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-card h3 {
     margin-top: 0;
+    font-size: 1.3rem;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 .project-card p {
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 0;
+    opacity: 0.9; /* Слегка приглушенный текст для лучшей иерархии */
 }
