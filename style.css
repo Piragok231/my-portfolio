@@ -19,7 +19,7 @@
 
 .theme-toggle-btn:hover {
     background: linear-gradient(45deg, var(--primary-color), #357abd);
-    color: #ffffff;
+    color: #f1efef;
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
     transform: scale(1.05); /* Легкое увеличение при наведении */
 }
