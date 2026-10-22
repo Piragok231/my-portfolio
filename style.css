@@ -1,0 +1,127 @@
+/* Базовые переменные для светлой темы */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --primary-color: #4a90e2;
+    --skill-bg: #e1ecf4;
+    --skill-text: #39739d;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Переменные для тёмной темы */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f7f6;
+    --card-bg: #2d2d2d;
+    --primary-color: #6ba4e8;
+    --skill-bg: #3d3d3d;
+    --skill-text: #6ba4e8;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+}
+
+/* Секция "О себе" */
+header {
+    margin-bottom: 40px;
+    padding-right: 120px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Секция навыков */
+.skills-section {
+    margin-bottom: 40px;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skills-list li {
+    background-color: var(--skill-bg);
+    color: var(--skill-text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Сетка проектов (Grid) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Карточки проектов и эффект наведения */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.project-card p {
+    line-height: 1.5;
+    margin-bottom: 0;
+}
